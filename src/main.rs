@@ -78,11 +78,7 @@ impl Workspace {
         fetch_opts.remote_callbacks(callbacks);
 
         let mut builder = RepoBuilder::new();
-        builder
-            .fetch_options(fetch_opts)
-            .remote_create(move |repo, _name, url| {
-                repo.remote_with_fetch(&self.origin.name, url, "+refs/*:refs/*")
-            });
+        builder.fetch_options(fetch_opts);
 
         builder
     }
@@ -95,6 +91,8 @@ impl Workspace {
                 &self.workspace_path.join(repo_name),
             )
             .expect(&format!("couldn't clone repo: {}", repo_name));
+
+        repo.remote_rename("origin", &self.origin.name).unwrap();
 
         repo
     }
