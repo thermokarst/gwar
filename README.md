@@ -24,13 +24,3 @@ remotes = [
   { name = "thermokarst", base_addr = "ssh://git@github.com/thermokarst" },
 ]
 ```
-
-## building and testing locally
-
-```bash
-sudo port install libiconv
-sudo mkdir /opt/local/include/iconv
-sudo cp /opt/local/include/iconv.h /opt/local/include/iconv/
-# building
-CFLAGS=-I/opt/local/include/iconv cargo build
-```
