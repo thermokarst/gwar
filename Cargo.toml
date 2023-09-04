@@ -5,7 +5,7 @@ authors = ["Matthew Dillon <matthewrdillon@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-git2 = { version = "0.13", features = ["vendored-openssl"] }
+git2 = { version = "0.18", features = ["vendored-openssl"] }
 serde = { version = "1.0", features = ["derive"] }
 shellexpand = "2.1"
 toml = "0.5"
