@@ -92,7 +92,9 @@ impl Workspace {
             )
             .expect(&format!("couldn't clone repo: {}", repo_name));
 
-        repo.remote_rename("origin", &self.origin.name).unwrap();
+        if &self.origin.name != "origin" {
+            repo.remote_rename("origin", &self.origin.name).unwrap();
+        }
 
         repo
     }
